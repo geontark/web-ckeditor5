@@ -15,6 +15,11 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 
 // image
 import Image from '@ckeditor/ckeditor5-image/src/image';
@@ -29,12 +34,19 @@ import customPlugin from './custom_plugin';
  *  에디터를 관리하기위한 파일
  *  에디터에 플러그인을 추가하거나 제거할수 있는등 다양한 조정 가능함
  */
+
 ClassicEditor
     .create( document.querySelector( '#editor' ), 
     {
-        plugins: [ Heading, Link, List, Essentials, Paragraph, Bold, Italic, Alignment, CodeBlock,Image, ImageCaption,ImageStyle, ImageUpload, ImageToolbar, ImageResize, Table, TableToolbar, TextTransformation, PasteFromOffice, MediaEmbed, BlockQuote, Indent ],     // <--- MODIFIED
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'alignment', 'bulletedList', 'numberedList', '|', 'indent', 'outdent', '|', 'codeBlock', 'imageUpload', 'blockQuote', 'insertTable', 'mediaEmbed', 'undo', 'redo'],                       // <--- MODIFIED
+        plugins: [ Font, TodoList, HorizontalLine, Highlight, Heading, Link, List, Essentials, Paragraph, Bold, Italic, Alignment, CodeBlock,Image, ImageCaption,ImageStyle, ImageUpload, ImageToolbar, ImageResize, Table, TableToolbar, TextTransformation, PasteFromOffice, MediaEmbed, BlockQuote, Indent, IndentBlock],     // <--- MODIFIED
+        toolbar: [ 'heading', '|', 'bold', 'italic', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|','link', 'alignment', 'bulletedList', 'numberedList', '|', 'indent', 'outdent', '|', 'codeBlock', 'imageUpload', 'blockQuote', 'insertTable', 'mediaEmbed', 'highlight', 'horizontalLine', 'todoList', 'undo', 'redo'],                       // <--- MODIFIED
         extraPlugins: [customPlugin.imageUploadAdapterPlugin],
+        table: {
+            contentToolbar: [
+                'tableColumn', 'tableRow', 'mergeTableCells',
+                'tableProperties', 'tableCellProperties'
+            ],
+        }
     })
     .then( newEditor => {
         console.log( 'Editor was initialized', newEditor );
