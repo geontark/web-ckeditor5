@@ -9,6 +9,7 @@ cd web-ckeditor5
 vim ./custom_plugin/index.js  
 WRITE consts infomation 
 ex) consts.imageUploadUrl -> "https://localhost:3000/api/upload"  
+consts.domain -> "https://localhost:3000"  
 npm install  
 npm run build  
 OPEN index.html in browser  

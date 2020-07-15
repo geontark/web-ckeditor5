@@ -2,8 +2,9 @@
  * 파일 업로드 관련 커스텀 어댑터 클래스
  */
 class UploadAdapter {
-    constructor(loader, url) {
+    constructor(loader, domain, url) {
         this.url = url;
+        this.domain = domain;
         this.loader = loader;
     }
 
@@ -25,6 +26,8 @@ class UploadAdapter {
     }
 
     _initListeners(resolve, reject, file) {
+        const domian = this.domain;
+
         const xhr = this.xhr;
         const loader = this.loader;
         const genericErrorText = '파일을 업로드 할 수 없습니다.'
@@ -47,7 +50,7 @@ class UploadAdapter {
             }
 
             resolve({
-                default: response.url //업로드된 파일 주소
+                default:  domian + response.url //업로드된 파일 주소
             })
         })
     }

@@ -36,7 +36,7 @@ import customPlugin from './custom_plugin';
  */
 
 ClassicEditor
-    .create( document.querySelector( '#editor' ), 
+    .create( document.querySelector( '#editor'), 
     {
         plugins: [ Font, TodoList, HorizontalLine, Highlight, Heading, Link, List, Essentials, Paragraph, Bold, Italic, Alignment, CodeBlock,Image, ImageCaption,ImageStyle, ImageUpload, ImageToolbar, ImageResize, Table, TableToolbar, TextTransformation, PasteFromOffice, MediaEmbed, BlockQuote, Indent, IndentBlock],     // <--- MODIFIED
         toolbar: [ 'heading', '|', 'bold', 'italic', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|','link', 'alignment', 'bulletedList', 'numberedList', '|', 'indent', 'outdent', '|', 'codeBlock', 'imageUpload', 'blockQuote', 'insertTable', 'mediaEmbed', 'highlight', 'horizontalLine', 'todoList', 'undo', 'redo'],                       // <--- MODIFIED

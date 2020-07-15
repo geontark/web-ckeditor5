@@ -3,3 +3,4 @@
 *.c
 consts/
 src/
+node_modules/
